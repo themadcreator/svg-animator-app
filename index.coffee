@@ -1,0 +1,1 @@
+require('jquery')(document).ready(require('./app'))
