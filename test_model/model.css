@@ -1,0 +1,32 @@
+
+.bright .big-box {
+  fill   : red;
+  stroke : white;
+}
+
+.bright .small-box {
+  fill   : blue;
+  stroke : white;
+}
+
+
+.cool .big-box {
+  fill   : dodgerblue;
+  stroke : gray;
+}
+
+.cool .small-box {
+  fill   : darkblue;
+  stroke : gray;
+}
+
+
+.hot .big-box {
+  fill   : yellow;
+  stroke : white;
+}
+
+.hot .small-box {
+  fill   : orange;
+  stroke : red;
+}

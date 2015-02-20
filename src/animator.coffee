@@ -1,17 +1,5 @@
 {$, Backbone, _} = require './mvc'
 
-CLASS_MAPPING = {
-  'st0' : 'big-box'
-  'st1' : 'small-box'
-}
-
-STYLE_GROUPS = [
-  'bright'
-  'cool'
-  'hot'
-]
-
-FRAME_REGEX = /frame([0-9]+)/
 
 
 class Controller
@@ -47,8 +35,10 @@ class Controller
 
 
 class Animator
+  @FRAME_REGEX = /frame([0-9]+)/
 
   constructor : ({@stage, @model, @controller}) ->
+    @_attachCss()
     @_remapStyles()
     @_frames = @_extractFrames()
     @_frameIndex = 0
@@ -61,21 +51,24 @@ class Animator
     @cycle()
     @render()
 
+  _attachCss : ->
+    $('head').append("<link rel=\"stylesheet\" type=\"text/css\" href=\"#{@model.css}\">")
+
   _remapStyles : ->
-    for mappingKey, mappingValue of CLASS_MAPPING
-      @model.find('.' + mappingKey).attr('class', mappingValue)
+    for mappingKey, mappingValue of @model.classes
+      @model.svg.find('.' + mappingKey).attr('class', mappingValue)
     return
 
   _extractFrames : () ->
-    return _.chain(@model.find('svg > g'))
+    return _.chain(@model.svg.find('svg > g'))
       .map((el) -> $(el))
-      .filter((el) -> FRAME_REGEX.test(el.attr('id')))
-      .sortBy((el) -> parseInt(FRAME_REGEX.exec(el.attr('id'))[1]))
+      .filter((el) -> Animator.FRAME_REGEX.test(el.attr('id')))
+      .sortBy((el) -> parseInt(Animator.FRAME_REGEX.exec(el.attr('id'))[1]))
       .value()
 
   cycle : =>
-    @stage.attr('class', STYLE_GROUPS[@_styleIndex])
-    @_styleIndex = (@_styleIndex + 1) % STYLE_GROUPS.length
+    @stage.attr('class', @model.styles[@_styleIndex])
+    @_styleIndex = (@_styleIndex + 1) % @model.styles.length
     return
 
   reset : =>

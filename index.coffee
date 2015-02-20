@@ -1,1 +1,1 @@
-require('jquery')(document).ready(require('./app'))
+require('jquery')(document).ready(require('./src/app'))
