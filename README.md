@@ -30,7 +30,7 @@ For example
         "st0" : "big-box",
         "st1" : "small-box"
       },
-      "styles"  : [
+      "palettes"  : [
         "bright",
         "cool",
         "hot"
@@ -45,7 +45,7 @@ For example
 
   **classes** - contains a mapping between the Illustrator auto-generated class names "st0", "st1", "st2", etc. to your human-readable names. You'll probably have to expirement a bit to see which style ends up with which class name.
 
-  **styles** - class names that are added to the SVG group which allow you to create sets of color palettes.
+  **palettes** - class names that are added to the SVG group which allow you to create sets of color palettes.
 
 
 # Running the app

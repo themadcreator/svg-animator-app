@@ -6,7 +6,7 @@
       "st0" : "big-box",
       "st1" : "small-box"
     },
-    "styles"  : [
+    "palettes"  : [
       "bright",
       "cool",
       "hot"
