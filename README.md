@@ -23,7 +23,7 @@ Move SVG to this directory and name it 'model.svg'
 
 # Running the app
 
-    npm run && npm build
+    npm run build && npm start
 
 Then navigate your browser over to:
 
