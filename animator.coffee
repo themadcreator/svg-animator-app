@@ -15,11 +15,12 @@ FRAME_REGEX = /frame([0-9]+)/
 
 
 class Controller
-  FRAME_DELAY_MSEC : 30
+  @FRAME_DELAY_MSEC : 30
+
+  _playing : false
 
   constructor : ({@controls}) ->
     _.extend(@, Backbone.Events)
-    @_playing 
     @controls.find('#play').click @_onPlay
     @controls.find('#stop').click @_onStop
     @controls.find('#cycle').click @_cycleStyles
@@ -69,7 +70,7 @@ class Animator
     return _.chain(@model.find('svg > g'))
       .map((el) -> $(el))
       .filter((el) -> FRAME_REGEX.test(el.attr('id')))
-      .sortBy((el) -> FRAME_REGEX.exec(el.attr('id'))[1])
+      .sortBy((el) -> parseInt(FRAME_REGEX.exec(el.attr('id'))[1]))
       .value()
 
   cycle : =>
