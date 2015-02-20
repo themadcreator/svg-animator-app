@@ -28,3 +28,5 @@ Move SVG to this directory and name it 'model.svg'
 Then navigate your browser over to:
 
     http://localhost:1111/
+
+You'll have to rebuild and restart the app if you make any code changes, but you don't if you just modify the SVG, HTML or CSS files.
