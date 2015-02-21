@@ -2,6 +2,7 @@
   "test_model" : {
     "svg"     : "test_model/model.svg",
     "css"     : "test_model/model.css",
+    "fps"     : 20,
     "classes" : {
       "st0" : "big-box",
       "st1" : "small-box"

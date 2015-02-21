@@ -43,9 +43,11 @@ For example
 
   **css** - the file containing your CSS rules.
 
-  **classes** - contains a mapping between the Illustrator auto-generated class names "st0", "st1", "st2", etc. to your human-readable names. You'll probably have to expirement a bit to see which style ends up with which class name.
+  **fps** - the target Frames-Per-Second of the animation.
 
-  **palettes** - class names that are added to the SVG group which allow you to create sets of color palettes.
+  **classes** - (optional) contains a mapping between the Illustrator auto-generated class names "st0", "st1", "st2", etc. to your human-readable names. You'll probably have to expirement a bit to see which style ends up with which class name.
+
+  **palettes** - (optional) class names that are added to the SVG group which allow you to create sets of color palettes.
 
 
 # Running the app

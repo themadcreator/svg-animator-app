@@ -1,20 +1,16 @@
-{$}                    = require './mvc'
-{Animator, Controller} = require './animator'
+{$, _}   = require './mvc'
+{Loader} = require './loader'
+{Animator, AnimatorControls, ModelControls, Dispatch} = require './animator'
 
 module.exports = ->
 
   $.getJSON('models.json')
-  # Select test model
-  .then((models) -> models.test_model)
-  # Load SVG for model
-  .then((model) ->
-    return $.get(model.svg)
-      .then((modelSvg) -> model.svg = $(modelSvg))
-      .then(-> model)
-
-  )
+  # Load models
+  .then((models) -> Loader.loadModels(models))
   # Construct animator UI
-  .then((model) ->
-    controller = new Controller({controls : $('#controls')})
-    animator   = new Animator({stage : $('svg #stage'), model, controller})
+  .then((models) ->
+    dispatch         = Dispatch
+    animator         = new Animator({stage : $('svg #stage'), dispatch})
+    animatorControls = new AnimatorControls({el : $('#animator-controls'), dispatch})
+    modelControls    = new ModelControls({el : $('#model-controls'), dispatch, models})
   )

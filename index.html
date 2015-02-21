@@ -1,14 +1,7 @@
 <head>
   <title>SVG Animator</title>
-  <style type="text/css">
-    body {
-      background-color : black;
-      color            : white;
-      font-family      : sans-serif;
-      user-select      : none;
-    }
-  </style>
   <link rel="stylesheet" type="text/css" href="index.css">
+  <link id="model-style" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -19,10 +12,18 @@
     </svg>
   </td></tr></table>
 
-  <div id="controls">
+  <div id="animator-controls" class="controls">
     <div id="play" class="control-button">PLAY</div>
+    <div id="play-half" class="control-button">½</div>
+    <div id="play-quarter" class="control-button">¼</div>
+    <div id="frame-prev" class="control-button">&lt;</div>
+    <div id="frame-next" class="control-button">&gt;</div>
     <div id="stop" class="control-button">STOP</div>
-    <div id="cycle" class="control-button">CYCLE</div>
+  </div>
+
+  <div id="model-controls" class="controls">
+    <div id="cycle-model" class="control-button">CYCLE MODEL</div>
+    <div id="cycle-palette" class="control-button">CYCLE PALETTE</div>
   </div>
 
   <script type="text/javascript" src="bundle.js"></script>

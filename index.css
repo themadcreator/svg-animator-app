@@ -1,4 +1,8 @@
 body {
+  background-color      : black;
+  color                 : white;
+  font-family           : sans-serif;
+
   -webkit-touch-callout : none;
   -webkit-user-select   : none;
   -khtml-user-select    : none;
@@ -7,17 +11,20 @@ body {
   user-select           : none;
 }
 
-#backdrop rect {
-  fill : #222;
+.controls {
+  position    : fixed;
+  left        : 50%;
+  margin-left : -300px;
+  width       : 600px;
+  text-align  : center;
 }
 
-#controls {
-  position    : fixed;
-  top         : 20px;
-  left        : 50%;
-  margin-left : -200px;
-  width       : 400px;
-  text-align  : center;
+#animator-controls {
+  top : 20px;
+}
+
+#model-controls {
+  top : 60px;
 }
 
 .control-button {
@@ -32,3 +39,6 @@ body {
   color            : black;
 }
 
+#backdrop rect {
+  fill : #222;
+}
